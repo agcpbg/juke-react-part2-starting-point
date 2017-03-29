@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import NavLink from './NavLink.js';
 
 const Albums = (props) => {
 
@@ -13,7 +14,7 @@ const Albums = (props) => {
       {
         albums.map(album => (
           <div className="col-xs-4" key={ album.id }>
-            <Link className="thumbnail" to={`/albums/${album.id}`}>
+            <NavLink className="thumbnail" to={`/albums/${album.id}`}>
               <img src={ album.imageUrl } />
               <div className="caption">
                 <h5>
@@ -21,7 +22,7 @@ const Albums = (props) => {
                 </h5>
                 <small>{ album.songs.length } songs</small>
               </div>
-            </Link>
+            </NavLink>
           </div>
         ))
       }

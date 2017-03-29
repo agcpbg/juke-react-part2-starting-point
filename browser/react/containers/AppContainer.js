@@ -51,7 +51,7 @@ export default class AppContainer extends Component {
   onArtistSongLoad(songs) {
     this.setState({selectedArtistSongs: songs})
   }
-  
+
   selectAlbum (albumId) {
     axios.get(`/api/albums/${albumId}`)
       .then(res => res.data)

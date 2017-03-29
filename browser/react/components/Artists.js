@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { Link } from 'react-router';
+import NavLink from './NavLink.js';
 
 class Artists extends React.Component {
     render() {
@@ -15,9 +16,9 @@ class Artists extends React.Component {
                         return (
                         <div className="list-group-item" key={artist.id}>
                             {/* determine where to actually Link to later! */}
-                            <Link to={`/artists/${artist.id}`}>{ artist.name }</Link>   
+                            <NavLink to={`/artists/${artist.id}`}>{ artist.name }</NavLink>
                         </div>
-                        )    
+                        )
                     })
                     }
                 </div>

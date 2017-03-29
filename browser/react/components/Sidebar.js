@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import NavLink from './NavLink.js';
 
 const Sidebar = (props) => {
 
@@ -7,11 +8,11 @@ const Sidebar = (props) => {
 
   return (
     <sidebar>
-      <img src="juke.svg" className="logo" />
+      <img src="/juke.svg" className="logo" />
       <section>
         <h4 className="menu-item">
-          <Link to="/albums">ALBUMS</Link><br />
-          <Link to="/artists">ARTISTS</Link>
+          <NavLink to="/albums">ALBUMS</NavLink><br />
+          <NavLink to="/artists">ARTISTS</NavLink>
         </h4>
       </section>
     </sidebar>

@@ -5,6 +5,8 @@ import axios from 'axios'
 import Albums from './Albums'
 import Songs from './Songs'
 import { convertAlbums } from '../utils'
+import { Link } from 'react-router';
+import NavLink from './NavLink.js';
 
 class Artist extends React.Component {
     componentDidMount() {
@@ -22,14 +24,21 @@ class Artist extends React.Component {
     // console.log('params.artistId in Artist: ', this.props.params.artistId)
     render() {
         const artist = this.props.artist;
-        const artistAlbums = this.props.selectedArtistAlbums;
-        const artistSongs = this.props.selectedArtistSongs;
+        const children = this.props.children;
+        const propsToPassToChildren = {
+            albums: this.props.selectedArtistAlbums,
+            songs: this.props.selectedArtistSongs,
+
+        }
 
         return (
             <div>
                 <h3>{artist.name}</h3>
-                <Albums albums={artistAlbums} />
-                <Songs songs={artistSongs} />
+                    <ul className='nav nav-tabs'>
+                        <li><NavLink to={`/artists/${artist.id}/albums`}>ALBUMS</NavLink></li>
+                        <li><NavLink to={`/artists/${artist.id}/songs`}>SONGS</NavLink></li>
+                    </ul>
+                    { children && React.cloneElement(children, propsToPassToChildren) }
             </div>
         )
     }

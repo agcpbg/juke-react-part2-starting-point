@@ -1,5 +1,6 @@
 import React from 'react';
 import Songs from '../components/Songs';
+import NavLink from './NavLink';
 
 class Album extends React.Component {
 
@@ -18,7 +19,13 @@ class Album extends React.Component {
     return (
       <div className="album">
         <div>
-          <h3>{ album.name }</h3>
+          <h3>{ album.name }
+            <NavLink to="mailto:?subject=your%20subject">
+              <button type="button" className="btn btn-default btn-xs" aria-label="Left Align">
+                <span className="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+              </button>
+            </NavLink>
+            </h3>
           <img src={ album.imageUrl } className="img-thumbnail" />
         </div>
         <Songs songs={album.songs} />
